@@ -1,0 +1,60 @@
+---
+function formatCurtancy(amount: number) {
+	return new Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: 'USD',
+	}).format(amount);
+}
+
+const response = await fetch(
+	'https://astro-frontend-masters-api.netlify.app/api/products'
+);
+
+if (!response.ok) {
+	throw new Error('Error fetching products');
+}
+
+const products: ShopItem[] = await response.json();
+---
+
+<section class="shop-items">
+	{
+		products.map((product) => (
+			<div class="item">
+				<img src={product.image.src} alt={product.image.alt} />
+				<h2>{product.title}</h2>
+				<p>{product.description}</p>
+				<p class="price">{formatCurtancy(product.price)}</p>
+			</div>
+		))
+	}
+</section>
+
+<style>
+	.shop-items {
+		display: flex;
+		gap: 3rem 1rem;
+		flex-wrap: wrap;
+		margin: 2rem 0;
+	}
+
+	.item {
+		width: 300px;
+	}
+
+	.item img {
+		aspect-ratio: 1;
+		border-radius: 0.125rem;
+		display: block;
+		width: 100%;
+	}
+
+	.item h2 {
+		font-size: 1.125rem;
+		margin: 0.75rem 0 0;
+	}
+
+	.item p {
+		margin: 0.25rem 0 0;
+	}
+</style>
