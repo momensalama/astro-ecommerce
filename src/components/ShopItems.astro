@@ -1,0 +1,80 @@
+---
+import { formatCurrency } from '../utils/helper';
+import AddToCart from './react/AddToCart';
+
+const fetchProducts = async () => {
+	try {
+		const response = await fetch(
+			'https://astro-frontend-masters-api.netlify.app/api/products'
+		);
+
+		if (!response.ok) {
+			throw new Error('Error fetching products');
+		}
+
+		const products: ShopItem[] = await response.json();
+		return products;
+	} catch (error) {
+		console.error('Error fetching products:', error);
+		return [];
+	}
+};
+
+const products = await fetchProducts();
+
+interface Props {
+	count?: number;
+	addToCart?: boolean;
+}
+
+const { count = Infinity, addToCart = true } = Astro.props;
+---
+
+<section class="shop-items">
+	{
+		products.slice(0, count).map((item) => (
+			<div class="item">
+				<img src={item.image.src} alt={item.image.alt} />
+				<h2>{item.title}</h2>
+				<p>{item.description}</p>
+				<p class="price">{formatCurrency(item.price)}</p>
+				{addToCart ? <AddToCart item={item} client:only="react" /> : null}
+			</div>
+		))
+	}
+</section>
+
+<style>
+	.shop-items {
+		display: flex;
+		gap: 3rem 1rem;
+		flex-wrap: wrap;
+		margin: 2rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.shop-items {
+			justify-content: center;
+		}
+	}
+
+	.item {
+		width: 300px;
+	}
+
+	.item img {
+		aspect-ratio: 1;
+		border-radius: 0.125rem;
+		display: block;
+		width: 100%;
+	}
+
+	.item h2 {
+		font-size: 1.125rem;
+		margin: 0.75rem 0 0;
+	}
+
+	.item p {
+		margin: 0.25rem 0 0;
+	}
+</style>
