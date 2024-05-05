@@ -17,7 +17,9 @@ const blogPosts = await getCollection('blog');
 						{post.data.date.toDateString()}
 					</time>
 					<p>{post.data.description}</p>
-					<a href={`/blog/${post.slug}`}>Read more</a>
+					<a href={`/blog/${post.slug}`} class="big-link">
+						Read more
+					</a>
 				</article>
 			))
 		}
