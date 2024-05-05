@@ -2,6 +2,12 @@
 
 This is a full-featured web app built using Astro. It demonstrates how to create an e-commerce store with shopping cart functionality, a blog with an RSS feed, and integrate a newsletter signup form that works even without JavaScript.
 
+## Live Demo
+
+Click on the link to [see the live demo](https://astro-web-app-gamma.vercel.app).
+
+![overview image of website](/src/images/overview.webp)
+
 ## Setup
 
 To get started with the project, follow these steps:
