@@ -34,10 +34,12 @@ const { count = Infinity, addToCart = true } = Astro.props;
 	{
 		products.slice(0, count).map((item) => (
 			<div class="item">
-				<img src={item.image.src} alt={item.image.alt} />
-				<h2>{item.title}</h2>
-				<p>{item.description}</p>
-				<p class="price">{formatCurrency(item.price)}</p>
+				<div class="item-content">
+					<img src={item.image.src} alt={item.image.alt} />
+					<h2>{item.title}</h2>
+					<p>{item.description}</p>
+					<p class="price">{formatCurrency(item.price)}</p>
+				</div>
 				{addToCart ? <AddToCart item={item} client:only="react" /> : null}
 			</div>
 		))
@@ -60,6 +62,9 @@ const { count = Infinity, addToCart = true } = Astro.props;
 
 	.item {
 		width: 300px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	.item img {
