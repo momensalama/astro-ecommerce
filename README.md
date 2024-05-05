@@ -1,54 +1,51 @@
-# Astro Starter Kit: Basics
+# Astro web app
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is a full-featured web app built using Astro. It demonstrates how to create an e-commerce store with shopping cart functionality, a blog with an RSS feed, and integrate a newsletter signup form that works even without JavaScript.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Setup
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+To get started with the project, follow these steps:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+1. Clone the repository:
 
-## 🚀 Project Structure
+   ```
+   git clone https://github.com/momensalama/astro-web-app.git
+   ```
 
-Inside of your Astro project, you'll see the following folders and files:
+2. Change to the project directory:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+   ```
+   cd astro-web-app
+   ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. Install the dependencies:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+   ```
+   npm install
+   ```
 
-Any static assets, like images, can be placed in the `public/` directory.
+4. Run the development server:
 
-## 🧞 Commands
+   ```
+   npm run dev
+   ```
 
-All commands are run from the root of the project, from a terminal:
+## Main Functionalities
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- E-commerce store with shopping cart (data fetched from an API)
+- Blog with RSS feed
+- Newsletter signup form (works without JavaScript)
+- Work mostly without JavaScript (except for the cart with a fallback)
+- Cross-framework state sharing (between Solid and React)
+- Type-Safe Markdown with content schema validation
+- Server-side rendering for specific pages (with Astro's hybrid rendering)
 
-## 👀 Want to learn more?
+## stack
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Astro, nonostroes, react.js, solid.js
+
+## Packages
+
+The following packages are used in this project:
+
+- **nonostroes**: State management
