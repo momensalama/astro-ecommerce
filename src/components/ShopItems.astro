@@ -4,9 +4,7 @@ import AddToCart from './react/AddToCart';
 
 const fetchProducts = async () => {
 	try {
-		const response = await fetch(
-			'https://astro-frontend-masters-api.netlify.app/api/products'
-		);
+		const response = await fetch(import.meta.env.PRODUCTS_API_URL);
 
 		if (!response.ok) {
 			throw new Error('Error fetching products');

@@ -1,5 +1,5 @@
-import { persistentAtom, persistentMap } from '@nanostores/persistent';
-import { computed, map } from 'nanostores';
+import { persistentAtom } from '@nanostores/persistent';
+import { computed } from 'nanostores';
 
 export const $cart = persistentAtom<Record<number, CartItem | undefined>>(
 	'cart',
