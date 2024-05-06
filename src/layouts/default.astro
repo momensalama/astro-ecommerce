@@ -30,6 +30,8 @@ const navLinks = [
 	</head>
 	<body>
 		<header>
+			<a href="#main" class="skip">Skip to main content</a>
+
 			<a href="/" rel="home">
 				<span role="img" aria-label="hotdog">🌭</span>
 				sndwch
@@ -44,7 +46,9 @@ const navLinks = [
 			</nav>
 		</header>
 
-		<main>
+		<slot name="hero" />
+
+		<main id="main">
 			<slot />
 		</main>
 
@@ -121,6 +125,14 @@ const navLinks = [
 
 	button {
 		cursor: pointer;
+	}
+	.skip {
+		position: fixed;
+		top: -200px;
+
+		&:focus {
+			top: 0;
+		}
 	}
 </style>
 
